@@ -1,0 +1,45 @@
+.header {
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+
+  .header__left .header__right {
+    position: absolute;
+  }
+
+  .header__left {
+    float: left;
+    margin-left: 60px;
+  }
+
+  .header__right {
+    float: right;
+    margin-right: 60px;
+
+    span {
+      color: #555555;
+      font-family: "Abhaya Libre", serif;
+    }
+  }
+  .header__middle {
+    width: 100%;
+    display: grid;
+    place-items: center;
+
+    .header__nav {
+      width: 300px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      span.header__nav__item {
+        color: #555555;
+        font-family: "Abhaya Libre", serif;
+      }
+    }
+  }
+}

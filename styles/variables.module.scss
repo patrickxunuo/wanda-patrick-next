@@ -1,0 +1,17 @@
+$basic-font-color: #555555;
+$basic-bg-color: #fdfbef;
+
+@font-face {
+  font-family: "AbhayaLibre";
+  src: url("../public/assets/fonts/AbhayaLibre-Regular.ttf") format("openType");
+}
+
+@font-face {
+  font-family: "Renitta";
+  src: url("../public/assets/fonts/Renitta.otf");
+}
+
+:export {
+  basicFontColor: $basic-font-color;
+  basicBgColor: $basic-bg-color;
+}
