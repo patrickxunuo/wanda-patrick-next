@@ -11,6 +11,11 @@ $basic-bg-color: #fdfbef;
   src: url("../public/assets/fonts/Renitta.otf");
 }
 
+@font-face {
+  font-family: "Ginger";
+  src: url("../public/assets/fonts/Ginger.ttf");
+}
+
 :export {
   basicFontColor: $basic-font-color;
   basicBgColor: $basic-bg-color;
