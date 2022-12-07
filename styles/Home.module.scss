@@ -1,0 +1,119 @@
+.main__img__wrap {
+  position: fixed;
+  left: 50%;
+  top: 60%;
+  translate: -50% -60%;
+  width: 300px;
+  aspect-ratio: 1;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  overflow: hidden;
+}
+
+.first__scene {
+  position: relative;
+  height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+
+  .deco__text,
+  .patrick__text,
+  .wanda__text {
+    color: #cf4b47;
+    position: absolute;
+  }
+
+  .deco__text {
+    font-family: "AbhayaLibre";
+    left: 28%;
+    top: 50%;
+  }
+
+  .patrick__text {
+    font-size: 96px;
+    font-family: "Renitta";
+    left: 28%;
+    top: 20%;
+    z-index: -5;
+  }
+  .wanda__text {
+    font-size: 96px;
+    font-family: "Renitta";
+    right: 25%;
+    top: 25%;
+    z-index: 5;
+  }
+}
+
+.second__scene {
+  position: relative;
+  height: 100vh;
+  margin-top: 80px;
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .scroll__down {
+    width: 270px;
+    height: 560px;
+    border-radius: 200px;
+    border: 0.5px #cf4b47 solid;
+    z-index: -1;
+    position: relative;
+
+    .scroll__down__text {
+      position: absolute;
+      translate: -50% 0;
+      left: 50%;
+      top: 30px;
+      font-size: 20px;
+      font-family: "Renitta";
+      color: #cf4b47;
+    }
+  }
+
+  .custest__boy {
+    font-size: 64px;
+    color: #cf4b47;
+    position: absolute;
+    right: 15%;
+    top: 30%;
+    font-family: "AbhayaLibre";
+    line-height: 0.56em;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+  }
+
+  .left__content {
+    position: absolute;
+    color: #cf4b47;
+    left: 15%;
+    top: 30%;
+
+    .every__day {
+      font-family: "Renitta";
+      font-size: 20px;
+    }
+
+    .anni__text {
+      font-family: "AbhayaLibre";
+      font-size: 48px;
+    }
+
+    .anni__redirect {
+      font-family: "AbhayaLibre";
+      font-size: 20px;
+
+      .anni__btn {
+        display: inline-block;
+        width: 24px;
+        aspect-ratio: 1;
+        border: 0.5px #cf4b47 solid;
+        border-radius: 50%;
+      }
+    }
+  }
+}

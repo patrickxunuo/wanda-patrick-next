@@ -9,7 +9,7 @@ export interface LayoutState {
 
 // Initial state
 const initialState: LayoutState = {
-  animated: false,
+  animated: true,
 };
 
 // Actual Slice
