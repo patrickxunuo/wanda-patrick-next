@@ -4,8 +4,8 @@ import styles from "../../styles/anniversary.module.scss";
 
 export async function getStaticProps() {
   const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_TOKEN,
+    space: process.env.CONTENTFUL_SPACE_ID!,
+    accessToken: process.env.CONTENTFUL_TOKEN!,
   });
   const res = await client.getEntries({
     content_type: "anniversaries",
@@ -18,10 +18,10 @@ export async function getStaticProps() {
   };
 }
 
-const Anniversary = ({ anniversaries }) => {
+const Anniversary = ({ anniversaries }: any) => {
   return (
     <div className={styles.page__container}>
-      {anniversaries.map((item) => (
+      {anniversaries.map((item: any) => (
         <div key={item.sys?.id} className={styles.anni__item}>
           <span className={styles.anni__text}>{item.fields?.date}</span>
           <span className={styles.anni__text}>{item.fields?.event}</span>
