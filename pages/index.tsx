@@ -44,7 +44,7 @@ export default function Home() {
       </div>
       <div className={styles.left__content}>
         <div className={styles.every__day}>
-          <div>Every day I’m still discovering</div>
+          <div>Every day I'm still discovering</div>
           <div>new things about you to love.</div>
         </div>
         <div className={styles.anni__text}>2022 . 03 . 22</div>

@@ -2,6 +2,7 @@ import React from "react";
 import TitleImg from "../public/assets/images/titleImg.png";
 import Image from "next/image";
 import styles from "../styles/Header.module.scss";
+import Link from "next/link";
 
 const Header = () => {
   return (
@@ -13,7 +14,9 @@ const Header = () => {
         <div className={styles.header__nav}>
           <span className={styles.header__nav__item}>Gallery</span>
           <span className={styles.header__nav__item}>Theatre</span>
-          <span className={styles.header__nav__item}>Anniversary</span>
+          <Link href="/anniversary">
+            <span className={styles.header__nav__item}>Anniversary</span>
+          </Link>
         </div>
       </div>
       <div className={styles.header__right}>

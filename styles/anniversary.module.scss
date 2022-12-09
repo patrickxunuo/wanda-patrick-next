@@ -1,0 +1,13 @@
+.page__container {
+  padding-top: 20vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  .anni__text {
+    font-family: AbhayaLibre;
+    font-size: 20px;
+    margin: 1em;
+  }
+}
