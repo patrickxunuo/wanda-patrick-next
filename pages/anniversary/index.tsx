@@ -10,7 +10,6 @@ export async function getStaticProps() {
   const res = await client.getEntries({
     content_type: "anniversaries",
   });
-
   return {
     props: {
       anniversaries: res.items,
