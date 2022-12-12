@@ -2,6 +2,7 @@ import "../styles/globals.scss";
 import type { AppProps } from "next/app";
 import Layout from "../components/Layout";
 import { wrapper } from "../store/store";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 
 function App({ Component, pageProps }: AppProps) {
   return (
@@ -11,4 +12,4 @@ function App({ Component, pageProps }: AppProps) {
   );
 }
 
-export default wrapper.withRedux(App)
+export default wrapper.withRedux(App);

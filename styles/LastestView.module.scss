@@ -1,0 +1,59 @@
+.lastest__view__section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(1000px, 80vw);
+  margin: 0 auto 20px;
+  gap: 20px;
+
+  a {
+    text-decoration: none;
+  }
+
+  .divider {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    .line__left,
+    .line__right {
+      width: 350px;
+      height: 2px;
+    }
+    .line__left {
+      background-image: linear-gradient(to right, #fff, #000);
+    }
+
+    .line__right {
+      background-image: linear-gradient(to right, #000, #fff);
+    }
+    span.title {
+      color: #cf4b47;
+      font-size: 36px;
+      font-family: "AbhayaLibre";
+    }
+  }
+  .subtitle__wrap {
+    text-align: center;
+
+    .subtitle__content {
+      font-family: "Renitta";
+    }
+  }
+
+  .poster__wrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .discover__btn {
+    border: 0.5px #cf4b47 solid;
+    padding: 0.25em 3em;
+    color: #cf4b47;
+    border-radius: 40px;
+    font-size: 20px;
+    font-family: "AbhayaLibre";
+  }
+}

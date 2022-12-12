@@ -1,6 +1,7 @@
 import React from "react";
 import { createClient } from "contentful";
-import styles from "../../styles/anniversary.module.scss";
+import styles from "../../styles/Anniversary.module.scss";
+import { calcualteDiffInDaydayDiff } from "./utils";
 
 export async function getStaticProps() {
   const client = createClient({
@@ -9,6 +10,7 @@ export async function getStaticProps() {
   });
   const res = await client.getEntries({
     content_type: "anniversaries",
+    order: "fields.date",
   });
   return {
     props: {
@@ -20,8 +22,19 @@ export async function getStaticProps() {
 const Anniversary = ({ anniversaries }: any) => {
   return (
     <div className={styles.page__container}>
-      {anniversaries.map((item: any) => (
-        <div key={item.sys?.id} className={styles.anni__item}>
+      {anniversaries.map((item: any, index: number) => (
+        <div
+          key={item.sys?.id}
+          className={styles.anni__item}
+          style={{
+            marginTop: `min(20px, ${
+              calcualteDiffInDaydayDiff(
+                item.fields.date,
+                anniversaries[index - 1]?.fields?.date
+              ) / 10
+            }px)`,
+          }}
+        >
           <span className={styles.anni__text}>{item.fields?.date}</span>
           <span className={styles.anni__text}>{item.fields?.event}</span>
         </div>

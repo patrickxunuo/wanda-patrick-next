@@ -7,9 +7,9 @@ import Link from "next/link";
 const Header = () => {
   return (
     <header className={styles.header}>
-      <div className={styles.header__left}>
+      <Link className={styles.header__left} href="/">
         <Image src={TitleImg} width={113} alt="" />
-      </div>
+      </Link>
       <div className={styles.header__middle}>
         <div className={styles.header__nav}>
           <span className={styles.header__nav__item}>Gallery</span>

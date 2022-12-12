@@ -1,10 +1,13 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .main__img__wrap {
-  position: fixed;
+  position: absolute;
   left: 50%;
-  top: 60%;
-  translate: -50% -60%;
-  width: 300px;
-  aspect-ratio: 1;
+  top: 50%;
+  transform: translate(-50%, -50%);
   border-bottom-left-radius: 50%;
   border-bottom-right-radius: 50%;
   overflow: hidden;
@@ -13,8 +16,9 @@
 .first__scene {
   position: relative;
   height: 100vh;
-  scroll-snap-align: start;
-  scroll-snap-stop: normal;
+  width: max(50%, 700px);
+  //scroll-snap-align: start;
+  // scroll-snap-stop: normal;
 
   .deco__text,
   .patrick__text,
@@ -25,21 +29,21 @@
 
   .deco__text {
     font-family: "AbhayaLibre";
-    left: 28%;
+    left: 0;
     top: 50%;
   }
 
   .patrick__text {
     font-size: 96px;
     font-family: "Renitta";
-    left: 28%;
+    left: 0;
     top: 20%;
     z-index: -5;
   }
   .wanda__text {
     font-size: 96px;
     font-family: "Renitta";
-    right: 25%;
+    right: 0;
     top: 25%;
     z-index: 5;
   }
@@ -49,8 +53,9 @@
   position: relative;
   height: 100vh;
   margin-top: 80px;
-  scroll-snap-align: start;
-  scroll-snap-stop: normal;
+  width: max(70%, 1000px);
+  // scroll-snap-align: start;
+  // scroll-snap-stop: normal;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,7 +70,7 @@
 
     .scroll__down__text {
       position: absolute;
-      translate: -50% 0;
+      transform: translate(-50%, 0);
       left: 50%;
       top: 30px;
       font-size: 20px;
@@ -78,7 +83,7 @@
     font-size: 64px;
     color: #cf4b47;
     position: absolute;
-    right: 15%;
+    right: 0;
     top: 30%;
     font-family: "AbhayaLibre";
     line-height: 0.56em;
@@ -90,7 +95,7 @@
   .left__content {
     position: absolute;
     color: #cf4b47;
-    left: 15%;
+    left: 0;
     top: 30%;
 
     .every__day {
@@ -106,14 +111,15 @@
     .anni__redirect {
       font-family: "AbhayaLibre";
       font-size: 20px;
-
-      .anni__btn {
-        display: inline-block;
-        width: 24px;
-        aspect-ratio: 1;
-        border: 0.5px #cf4b47 solid;
-        border-radius: 50%;
-      }
+    }
+    .anni__btn {
+      display: inline-grid;
+      place-items: center;
+      width: 24px;
+      height: 24px;
+      border: 0.5px #cf4b47 solid;
+      border-radius: 50%;
+      margin-left: 10px;
     }
   }
 }
