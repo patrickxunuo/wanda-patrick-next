@@ -6,6 +6,32 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import LastestView from "../components/LatestView";
+import { motion } from "framer-motion";
+
+const textVariants = {
+  animate: {
+    transition: {
+      delayChildren: 0.4,
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const letterVariants = {
+  initial: {
+    y: 200,
+  },
+  animate: {
+    y: 0,
+    transition: {
+      ease: [0.6, 0.01, -0.05, 0.95],
+      duration: 1,
+    },
+  },
+};
+
+const patrickText = ["P", "a", "t", "r", "i", "c", "k"];
+const wandaText = ["W", "a", "n", "d", "a"];
 
 export default function Home() {
   return (
@@ -21,15 +47,51 @@ export default function Home() {
 
       <div className={styles.first__scene}>
         <div className={styles.main__img__wrap}>
-          <Image
+          <img
             height={340}
             width={300}
             src="/assets/images/mainPage/main.png"
             alt="none"
           />
         </div>
-        <div className={styles.patrick__text}>Patrick</div>
-        <div className={styles.wanda__text}>Wanda</div>
+        <motion.div
+          variants={textVariants}
+          className={styles.patrick__text}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+        >
+          {patrickText.map((letter, index) => (
+            <motion.span
+              key={index}
+              variants={letterVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              {letter}
+            </motion.span>
+          ))}
+        </motion.div>
+        <motion.div
+          variants={textVariants}
+          className={styles.wanda__text}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+        >
+          {wandaText.map((letter, index) => (
+            <motion.span
+              key={index}
+              variants={letterVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              {letter}
+            </motion.span>
+          ))}
+        </motion.div>
         <div className={styles.deco__text}>
           <div>Here will witness our</div>
           <div>meet, grow and love</div>
