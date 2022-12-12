@@ -1,6 +1,6 @@
 import React from "react";
 import { createClient } from "contentful";
-import styles from "../../styles/Anniversary.module.scss";
+import styles from "../../styles/anniversary.module.scss";
 import { calcualteDiffInDaydayDiff } from "./utils";
 
 export async function getStaticProps() {
