@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "../styles/PageLoad.module.scss";
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 const PageLoad = () => {
