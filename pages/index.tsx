@@ -1,6 +1,6 @@
 import Head from "next/head";
 import BackToTopBtn from "../components/BackToTopBtn";
-import styles from "../styles/home.module.scss";
+import styles from "../styles/Home.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
