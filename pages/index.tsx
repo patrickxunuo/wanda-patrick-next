@@ -5,8 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import LastestView from "../components/LatestView";
+import LatestView from "../components/LatestView";
 import { motion } from "framer-motion";
+import useWindowSize from "../hooks/useWindowSize";
+import useScroll from "../hooks/useScroll";
+import dynamic from "next/dynamic";
 
 const textVariants = {
   animate: {
@@ -34,6 +37,10 @@ const patrickText = ["P", "a", "t", "r", "i", "c", "k"];
 const wandaText = ["W", "a", "n", "d", "a"];
 
 export default function Home() {
+  const { scrollY } = useScroll();
+  const { height: windowHeight } = useWindowSize();
+  const imageFixed = scrollY < windowHeight;
+
   return (
     <div className={styles.home}>
       <Head>
@@ -46,14 +53,22 @@ export default function Home() {
       </Head>
 
       <div className={styles.first__scene}>
-        <div className={styles.main__img__wrap}>
+        <motion.div
+          className={styles.main__img__wrap}
+          style={{
+            position: imageFixed ? "fixed" : "relative",
+            opacity: imageFixed ? 1 : 0,
+          }}
+          layout="position"
+          layoutId="homeImage"
+        >
           <img
             height={340}
             width={300}
             src="/assets/images/mainPage/main.png"
             alt="none"
           />
-        </div>
+        </motion.div>
         <motion.div
           variants={textVariants}
           className={styles.patrick__text}
@@ -99,20 +114,25 @@ export default function Home() {
       </div>
 
       <div className={styles.second__scene}>
-        <div className={styles.main__img__wrap}>
+        <motion.div
+          className={styles.main__img__wrap__2}
+          style={{ opacity: imageFixed ? 0 : 1 }}
+          layout="position"
+          layoutId="homeImage"
+        >
           <Image
             height={340}
             width={300}
             src="/assets/images/mainPage/main.png"
             alt="none"
           />
-        </div>
+        </motion.div>
         <div className={styles.scroll__down}>
           <div className={styles.scroll__down__text}>Scroll down</div>
         </div>
-        <div className={styles.custest__boy}>
+        <div className={styles.cutest__boy}>
           <div>PATRICK IS THE</div>
-          <div>CUSTEST BOY</div>
+          <div>CUTEST BOY</div>
           <div>ON EARTH</div>
         </div>
         <div className={styles.left__content}>
@@ -134,7 +154,7 @@ export default function Home() {
         </div>
       </div>
 
-      <LastestView />
+      <LatestView />
       <BackToTopBtn />
     </div>
   );
