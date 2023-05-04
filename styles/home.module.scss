@@ -35,6 +35,11 @@
     .wanda__text {
       color: #cf4b47;
       position: absolute;
+      overflow: hidden;
+
+      span {
+        display: inline-block;
+      }
     }
 
     .deco__text {
@@ -62,7 +67,7 @@
   .second__scene {
     position: relative;
     height: 100vh;
-    width: max(50%, 600px);
+    width: max(55%, 600px);
     //scroll-snap-align: start;
     //scroll-snap-stop: normal;
     //scroll-behavior: smooth;
@@ -117,6 +122,11 @@
       .anni__text {
         font-family: "AbhayaLibre";
         font-size: 48px;
+      }
+
+      .anni__bottom {
+        display: flex;
+        align-items: center;
       }
 
       .anni__redirect {

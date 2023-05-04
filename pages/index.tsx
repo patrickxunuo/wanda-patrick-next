@@ -8,7 +8,8 @@ import LatestView from "../components/LatestView";
 import { AnimatePresence, motion } from "framer-motion";
 import useWindowSize from "../hooks/useWindowSize";
 import useScroll from "../hooks/useScroll";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { defaultVariantProps, homeDelayVariants } from "../utils/constant";
 
 const textVariants = {
   animate: {
@@ -19,9 +20,18 @@ const textVariants = {
   },
 };
 
+const textVariants2 = {
+  animate: {
+    transition: {
+      delayChildren: 1,
+      staggerChildren: 0.1,
+    },
+  },
+};
+
 const letterVariants = {
   initial: {
-    y: 200,
+    y: 250,
   },
   animate: {
     y: 0,
@@ -44,6 +54,13 @@ export default function Home() {
     [scrollY, windowHeight]
   );
 
+  useEffect(() => {
+    setTimeout(() => {
+      document.body.style.setProperty("height", "auto");
+      document.body.style.setProperty("overflow", "auto scroll");
+    }, 2000);
+  }, []);
+
   return (
     <div className={styles.home}>
       <Head>
@@ -55,7 +72,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <AnimatePresence initial={false}>
+      <AnimatePresence>
         {imageFixed ? (
           <motion.div
             className={styles.main__img__wrap}
@@ -65,8 +82,8 @@ export default function Home() {
             }}
           >
             <img
-              height={340}
-              width={300}
+              height={400}
+              width={360}
               src="/assets/images/mainPage/main.png"
               alt="none"
             />
@@ -80,8 +97,8 @@ export default function Home() {
             }}
           >
             <img
-              height={340}
-              width={300}
+              height={400}
+              width={360}
               src="/assets/images/mainPage/main.png"
               alt="none"
             />
@@ -98,46 +115,42 @@ export default function Home() {
           exit="exit"
         >
           {patrickText.map((letter, index) => (
-            <motion.span
-              key={index}
-              variants={letterVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-            >
+            <motion.span key={index} variants={letterVariants}>
               {letter}
             </motion.span>
           ))}
         </motion.div>
         <motion.div
-          variants={textVariants}
+          variants={textVariants2}
           className={styles.wanda__text}
           initial="initial"
           animate="animate"
           exit="exit"
         >
           {wandaText.map((letter, index) => (
-            <motion.span
-              key={index}
-              variants={letterVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-            >
+            <motion.span key={index} variants={letterVariants}>
               {letter}
             </motion.span>
           ))}
         </motion.div>
-        <div className={styles.deco__text}>
+        <motion.div
+          className={styles.deco__text}
+          variants={homeDelayVariants}
+          {...defaultVariantProps}
+        >
           <div>Here will witness our</div>
           <div>meet, grow and love</div>
-        </div>
+        </motion.div>
       </div>
 
       <div className={styles.second__scene}>
-        <div className={styles.scroll__down}>
+        <motion.div
+          className={styles.scroll__down}
+          variants={homeDelayVariants}
+          {...defaultVariantProps}
+        >
           <div className={styles.scroll__down__text}>Scroll down</div>
-        </div>
+        </motion.div>
         <div className={styles.cutest__boy}>
           <div>PATRICK IS THE</div>
           <div>CUTEST BOY</div>
@@ -149,7 +162,7 @@ export default function Home() {
             <div>new things about you to love.</div>
           </div>
           <div className={styles.anni__text}>2022 . 03 . 22</div>
-          <div>
+          <div className={styles.anni__bottom}>
             <span className={styles.anni__redirect}>
               Check other anniversary
             </span>

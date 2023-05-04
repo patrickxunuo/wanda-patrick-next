@@ -6,6 +6,29 @@ body {
   box-sizing: border-box;
   background-color: v.$basic-bg-color;
   min-height: 100vh;
+  overflow: hidden;
+  height: 100%;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #ababab;
+    background-clip: padding-box; // <== make the border work
+    border: 2px solid transparent;
+    border-radius: 10px;
+    transition: all 1s ease-in-out;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    border: 0;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
 }
 
 html {

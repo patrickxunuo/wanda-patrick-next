@@ -3,10 +3,16 @@ import TitleImg from "../public/assets/images/titleImg.png";
 import Image from "next/image";
 import styles from "../styles/Header.module.scss";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { defaultVariantProps, homeDelayVariants } from "../utils/constant";
 
 const Header = () => {
   return (
-    <header className={styles.header}>
+    <motion.header
+      className={styles.header}
+      variants={homeDelayVariants}
+      {...defaultVariantProps}
+    >
       <Link className={styles.header__left} href="/">
         <Image src={TitleImg} width={113} alt="" />
       </Link>
@@ -22,7 +28,7 @@ const Header = () => {
       <div className={styles.header__right}>
         <span>Service</span>
       </div>
-    </header>
+    </motion.header>
   );
 };
 
