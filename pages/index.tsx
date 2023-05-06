@@ -144,18 +144,6 @@ export default function Home() {
       </div>
 
       <div className={styles.second__scene}>
-        <motion.div
-          className={styles.scroll__down}
-          variants={homeDelayVariants}
-          {...defaultVariantProps}
-        >
-          <div className={styles.scroll__down__text}>Scroll down</div>
-        </motion.div>
-        <div className={styles.cutest__boy}>
-          <div>PATRICK IS THE</div>
-          <div>CUTEST BOY</div>
-          <div>ON EARTH</div>
-        </div>
         <div className={styles.left__content}>
           <div className={styles.every__day}>
             <div>Every day I'm still discovering</div>
@@ -172,6 +160,56 @@ export default function Home() {
               </div>
             </Link>
           </div>
+          <div className={styles.luckiest__girl}>
+            <span>WANDA IS THE</span>
+            <span>LUCKIEST GIRL</span>
+            <span>ON EARTH</span>
+          </div>
+        </div>
+        <div className={styles.middle__content}>
+          <motion.div
+            className={styles.scroll__down}
+            variants={homeDelayVariants}
+            {...defaultVariantProps}
+          >
+            <div className={styles.scroll__down__text}>Scroll down</div>
+          </motion.div>
+        </div>
+        <div className={styles.right__content}>
+          <div className={styles.cutest__boy}>
+            <div>PATRICK IS THE</div>
+            <div>CUTEST BOY</div>
+            <div>ON EARTH</div>
+          </div>
+          <div className={styles.tree__bird}>
+            <div>
+              <img
+                width={100}
+                src="/assets/images/mainPage/bird.png"
+                alt="none"
+                className={styles.bird}
+              />
+              <img
+                width={200}
+                src="/assets/images/mainPage/tree.png"
+                alt="none"
+              />
+            </div>
+            <img
+              className={styles.firework}
+              src="/assets/images/mainPage/firework.png"
+              alt="none"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.third__scene}>
+        <div>
+          <span>DFNGVOSNRHBRTGKMBHGP[MPG,ERFXERECERCG</span>
+          <span>ERCGXRMRTG,ONRT</span>
+          <span>CXRGIIIIITP4RF</span>
+          <span>CGRTMGORT,</span>
         </div>
       </div>
 

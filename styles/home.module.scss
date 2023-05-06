@@ -25,7 +25,7 @@
   .first__scene {
     position: relative;
     height: 100vh;
-    width: max(40%, 450px);
+    width: clamp(800px, 40vw, 1000px);
     //scroll-snap-align: start;
     //scroll-snap-stop: normal;
     //scroll-behavior: smooth;
@@ -55,6 +55,7 @@
       top: 20%;
       z-index: -5;
     }
+
     .wanda__text {
       font-size: 96px;
       font-family: "Renitta";
@@ -67,52 +68,18 @@
   .second__scene {
     position: relative;
     height: 100vh;
-    width: max(55%, 600px);
+    width: clamp(800px, 60vw, 1100px);
     //scroll-snap-align: start;
     //scroll-snap-stop: normal;
     //scroll-behavior: smooth;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .scroll__down {
-      position: relative;
-      top: calc(-5vh - 100px);
-      width: 270px;
-      height: 90vh;
-      border-radius: 200px;
-      border: 0.5px #cf4b47 solid;
-      z-index: -1;
-
-      .scroll__down__text {
-        position: absolute;
-        transform: translate(-50%, 0);
-        left: 50%;
-        top: 30px;
-        font-size: 20px;
-        font-family: "Renitta";
-        color: #cf4b47;
-      }
-    }
-
-    .cutest__boy {
-      font-size: 64px;
-      color: #cf4b47;
-      position: absolute;
-      right: 0;
-      top: 30%;
-      font-family: "AbhayaLibre";
-      line-height: 0.56em;
-      display: flex;
-      align-items: flex-end;
-      flex-direction: column;
-    }
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 
     .left__content {
-      position: absolute;
       color: #cf4b47;
       left: 0;
-      top: 30%;
+      margin-top: 20vh;
 
       .every__day {
         font-family: "Renitta";
@@ -133,6 +100,7 @@
         font-family: "AbhayaLibre";
         font-size: 20px;
       }
+
       .anni__btn {
         display: inline-grid;
         place-items: center;
@@ -142,6 +110,92 @@
         border-radius: 50%;
         margin-left: 10px;
       }
+
+      .luckiest__girl {
+        font-size: 64px;
+        color: #cf4b47;
+        position: absolute;
+        left: 0;
+        bottom: 30vh;
+        font-family: "AbhayaLibre";
+        line-height: 0.56em;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+
+        span {
+          white-space: nowrap;
+        }
+      }
     }
+
+    .middle__content {
+      display: flex;
+      justify-content: center;
+
+      .scroll__down {
+        position: relative;
+        top: -10vh;
+        width: clamp(200px, 15vw, 275px);
+        height: 90vh;
+        border-radius: 200px;
+        border: 0.5px #cf4b47 solid;
+        z-index: -1;
+
+        .scroll__down__text {
+          position: absolute;
+          transform: translate(-50%, 0);
+          left: 50%;
+          top: 30px;
+          font-size: 20px;
+          font-family: "Renitta";
+          color: #cf4b47;
+        }
+      }
+    }
+
+    .right__content {
+      .cutest__boy {
+        position: absolute;
+        font-size: 64px;
+        color: #cf4b47;
+        right: 0;
+        top: 25vh;
+        font-family: "AbhayaLibre";
+        line-height: 0.56em;
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+      }
+
+      .tree__bird {
+        width: 20vw;
+        position: absolute;
+        right: 0;
+        top: 40vh;
+
+        .bird {
+          position: relative;
+          left: 40px;
+        }
+
+        .firework {
+          position: relative;
+          width: 100%;
+          z-index: 2;
+        }
+      }
+    }
+  }
+
+  .third__scene {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    //scroll-snap-align: start;
+    //scroll-snap-stop: normal;
+    //scroll-behavior: smooth;
+    background-color: #F2E7E2;
+    z-index: 1;
   }
 }
