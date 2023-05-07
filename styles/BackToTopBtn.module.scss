@@ -10,9 +10,21 @@
   place-content: center;
   cursor: pointer;
   transition: 100ms;
+  overflow: hidden;
+  z-index: 5;
+
+  .backdrop {
+    position: absolute;
+    background-color: #CF4B4720;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    transform-origin: 0 0;
+  }
 
   &:hover {
-    box-shadow: 0 0 2px 3px #cf4b47;
+    box-shadow: 0 0 5px 3px #cf4b47;
   }
 
   div {
