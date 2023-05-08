@@ -3,13 +3,58 @@
   flex-direction: column;
   align-items: center;
   position: relative;
+  height: 1000vh;
+
+  //.main__img__wrap {
+  //  left: 50%;
+  //  transform: translate(-50%, -50%);
+  //  width: 360px;
+  //  height: 400px;
+  //  border-bottom-left-radius: 50%;
+  //  border-bottom-right-radius: 50%;
+  //  background-color: transparent;
+  //  background-repeat: round;
+  //  background-image: url("../public/assets/images/mainPage/main.png");
+  //  .the__img {
+  //    width: 360px;
+  //    height: 400px;
+  //    border-bottom-left-radius: 50%;
+  //    border-bottom-right-radius: 50%;
+  //  }
 
   .main__img__wrap {
     left: 50%;
     transform: translate(-50%, -50%);
-    border-bottom-left-radius: 50%;
-    border-bottom-right-radius: 50%;
-    overflow: hidden;
+    z-index: 10;
+    .the__img {
+      width: 360px;
+      height: 400px;
+      border-bottom-left-radius: 50%;
+      border-bottom-right-radius: 50%;
+    }
+
+    .flash__light {
+      position: absolute;
+      right: 123px;
+      top: 123px;
+      width: 2px;
+      height: 2px;
+      background-color: #fff;
+      border-radius: 50%;
+      .flash__light__content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 120%;
+        height: 120%;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        opacity: 0;
+        box-shadow: 0 0 25px 25px #fff, 0 0 50px 50px #fff8,
+          0 0 100px 100px #fff5;
+      }
+    }
   }
 
   .main__img__wrap__fixed {
@@ -53,7 +98,7 @@
       font-family: "Renitta";
       left: 0;
       top: 20%;
-      z-index: -5;
+      z-index: 5;
     }
 
     .wanda__text {
@@ -61,14 +106,14 @@
       font-family: "Renitta";
       right: 0;
       top: 25%;
-      z-index: 5;
+      z-index: 15;
     }
   }
 
   .second__scene {
     position: relative;
-    height: 100vh;
-    width: clamp(800px, 60vw, 1100px);
+    height: 800vh;
+    width: clamp(800px, 60vw, 1200px);
     //scroll-snap-align: start;
     //scroll-snap-stop: normal;
     //scroll-behavior: smooth;
@@ -81,6 +126,20 @@
       left: 0;
       margin-top: 20vh;
 
+      .luckiest__girl {
+        position: fixed;
+        font-size: clamp(80px, 8vw, 120px);
+        color: #cf4b47;
+        white-space: nowrap;
+        bottom: 15vh;
+        font-family: "AbhayaLibre";
+        line-height: 0.56em;
+      }
+
+      .action__content {
+        position: sticky;
+        top: 40vh;
+      }
       .every__day {
         font-family: "Renitta";
         font-size: 20px;
@@ -110,23 +169,6 @@
         border-radius: 50%;
         margin-left: 10px;
       }
-
-      .luckiest__girl {
-        font-size: 64px;
-        color: #cf4b47;
-        position: absolute;
-        left: 0;
-        bottom: 30vh;
-        font-family: "AbhayaLibre";
-        line-height: 0.56em;
-        display: flex;
-        align-items: flex-start;
-        flex-direction: column;
-
-        span {
-          white-space: nowrap;
-        }
-      }
     }
 
     .middle__content {
@@ -135,9 +177,9 @@
 
       .scroll__down {
         position: relative;
-        top: -10vh;
+        top: -5vh;
         width: clamp(200px, 15vw, 275px);
-        height: 90vh;
+        height: 100%;
         border-radius: 200px;
         border: 0.5px #cf4b47 solid;
         z-index: -1;
@@ -156,16 +198,13 @@
 
     .right__content {
       .cutest__boy {
-        position: absolute;
-        font-size: 64px;
+        position: fixed;
+        font-size: clamp(80px, 8vw, 120px);
         color: #cf4b47;
-        right: 0;
-        top: 25vh;
+        white-space: nowrap;
+        top: 15vh;
         font-family: "AbhayaLibre";
         line-height: 0.56em;
-        display: flex;
-        align-items: flex-end;
-        flex-direction: column;
       }
 
       .tree__bird {
@@ -178,16 +217,16 @@
           position: relative;
           left: 40px;
         }
-
-        .firework {
-          position: relative;
-          width: 100%;
-          z-index: 2;
-        }
       }
     }
   }
-
+  .firework {
+    position: fixed;
+    .firework__img {
+      width: 354px;
+      height: 512px;
+    }
+  }
   .third__scene {
     position: relative;
     height: 100vh;
@@ -195,7 +234,7 @@
     //scroll-snap-align: start;
     //scroll-snap-stop: normal;
     //scroll-behavior: smooth;
-    background-color: #F2E7E2;
+    background-color: #f2e7e2;
     z-index: 1;
   }
 }
