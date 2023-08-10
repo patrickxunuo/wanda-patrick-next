@@ -53,8 +53,20 @@ export default function Home() {
   // home background
   const homeBg = useTransform(
     scrollYProgress,
+    [0, 0.3, 0.4, 0.7, 0.85, 1],
+    ["#fdfbef", "#fdfbef", "#3b3947", "#121422", "#fdfbef", "#fdfbef"]
+  );
+
+  const clothFilter = useTransform(
+    scrollYProgress,
     [0, 0.3, 0.4, 0.7, 1],
-    ["#fdfbef", "#fdfbef", "#3b3947", "#121422", "#124214"]
+    [
+      "none",
+      "none",
+      "invert(21%) sepia(9%) saturate(924%) hue-rotate(208deg) brightness(96%) contrast(93%)",
+      "#121422",
+      "#124214",
+    ]
   );
 
   // cutest boy opacity
@@ -103,18 +115,47 @@ export default function Home() {
     [0, 1, 0, 0]
   );
 
-  // firework scale
-  const fWScale = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.5, 0.525, 1],
-    [0, 0.5, 3, 0, 0]
-  );
-  // const fwTop = useTransform(scrollYProgress, [0, 0.3, 0.4, 1], [0, , 5, 0]);
-  // const fwLeft = useTransform(
-  //         scrollYProgress,
-  //         [0, 0.3, 0.4, 1],
-  //         [0, 0, 5, 0]
-  // )
+  const imageTop = useTransform(scrollYProgress, (pos) => {
+    if (pos < 0.825) return "50%";
+    const result =
+      (0.825 - pos) * document.body.offsetHeight + window.innerHeight / 2;
+    return result;
+  });
+
+  // firework image
+  const fwScale = useTransform(scrollYProgress, [0.31, 0.38], [0, 1]);
+  const fwTop = useTransform(scrollYProgress, [0.31, 0.38], [0, -500]);
+  const fwLeft = useTransform(scrollYProgress, [0.31, 0.38], [0, 500]);
+  const fwOpacity = useTransform(scrollYProgress, [0.36, 0.38], [1, 0]);
+  const fwRotate = useTransform(scrollYProgress, [0.31, 0.38], [0, 45]);
+
+  // gibson image
+  const gsScale = useTransform(scrollYProgress, [0.41, 0.48], [0, 1]);
+  const gsTop = useTransform(scrollYProgress, [0.41, 0.48], [0, 500]);
+  const gsLeft = useTransform(scrollYProgress, [0.41, 0.48], [0, -600]);
+  const gsOpacity = useTransform(scrollYProgress, [0.46, 0.48], [1, 0]);
+  const gsRotate = useTransform(scrollYProgress, [0.41, 0.48], [0, 60]);
+
+  // quebec image
+  const qbScale = useTransform(scrollYProgress, [0.51, 0.58], [0, 1]);
+  const qbTop = useTransform(scrollYProgress, [0.51, 0.58], [0, -1000]);
+  const qbLeft = useTransform(scrollYProgress, [0.51, 0.58], [0, -600]);
+  const qbOpacity = useTransform(scrollYProgress, [0.56, 0.58], [1, 0]);
+  const qbRotate = useTransform(scrollYProgress, [0.51, 0.58], [0, 80]);
+
+  // lighthouse image
+  const lhScale = useTransform(scrollYProgress, [0.61, 0.68], [0, 1]);
+  const lhTop = useTransform(scrollYProgress, [0.61, 0.68], [0, 700]);
+  const lhLeft = useTransform(scrollYProgress, [0.61, 0.68], [0, 800]);
+  const lhOpacity = useTransform(scrollYProgress, [0.66, 0.68], [1, 0]);
+  const lhRotate = useTransform(scrollYProgress, [0.61, 0.68], [0, -30]);
+
+  // victoria image
+  const vcScale = useTransform(scrollYProgress, [0.71, 0.78], [0, 1]);
+  const vcTop = useTransform(scrollYProgress, [0.71, 0.78], [0, 300]);
+  const vcLeft = useTransform(scrollYProgress, [0.71, 0.78], [0, -400]);
+  const vcOpacity = useTransform(scrollYProgress, [0.76, 0.78], [1, 0]);
+  const vcRotate = useTransform(scrollYProgress, [0.71, 0.78], [0, 70]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -142,7 +183,7 @@ export default function Home() {
       <motion.div
         className={styles.main__img__wrap}
         style={{
-          top: "50%",
+          top: imageTop,
           position: "fixed",
         }}
       >
@@ -151,10 +192,106 @@ export default function Home() {
             className={styles.flash__light__content}
             style={{ opacity: fLOpacity }}
           />
+          <motion.div
+            className={styles.firework}
+            style={{
+              scale: fwScale,
+              top: fwTop,
+              left: fwLeft,
+              opacity: fwOpacity,
+            }}
+          >
+            <motion.img
+              className={styles.firework__img}
+              style={{
+                rotate: fwRotate,
+              }}
+              src="/assets/images/mainPage/firework.png"
+              alt="none"
+            />
+          </motion.div>
+          <motion.div
+            className={styles.firework}
+            style={{
+              scale: qbScale,
+              top: qbTop,
+              left: qbLeft,
+              opacity: qbOpacity,
+            }}
+          >
+            <motion.img
+              className={styles.firework__img}
+              style={{
+                rotate: qbRotate,
+              }}
+              src="/assets/images/mainPage/quebec.jpg"
+              alt="none"
+            />
+          </motion.div>
+          <motion.div
+            className={styles.firework}
+            style={{
+              scale: gsScale,
+              top: gsTop,
+              left: gsLeft,
+              opacity: gsOpacity,
+            }}
+          >
+            <motion.img
+              className={styles.firework__img}
+              style={{
+                rotate: gsRotate,
+              }}
+              src="/assets/images/mainPage/gibson.jpg"
+              alt="none"
+            />
+          </motion.div>
+          <motion.div
+            className={styles.firework}
+            style={{
+              scale: vcScale,
+              top: vcTop,
+              left: vcLeft,
+              opacity: vcOpacity,
+            }}
+          >
+            <motion.img
+              className={styles.firework__img}
+              style={{
+                rotate: vcRotate,
+              }}
+              src="/assets/images/mainPage/victoria.jpg"
+              alt="none"
+            />
+          </motion.div>
+          <motion.div
+            className={styles.firework}
+            style={{
+              scale: lhScale,
+              top: lhTop,
+              left: lhLeft,
+              opacity: lhOpacity,
+            }}
+          >
+            <motion.img
+              className={styles.firework__img}
+              style={{
+                rotate: lhRotate,
+              }}
+              src="/assets/images/mainPage/lighthouse.jpg"
+              alt="none"
+            />
+          </motion.div>
         </motion.div>
         <img
           className={styles.the__img}
           src="/assets/images/mainPage/main.png"
+          alt="none"
+        />
+        <motion.img
+          className={styles.the__img__clothes}
+          style={{ filter: clothFilter }}
+          src="/assets/images/mainPage/main_clothes.png"
           alt="none"
         />
       </motion.div>
@@ -269,22 +406,14 @@ export default function Home() {
         </div>
       </div>
 
-      {/*<motion.div className={styles.firework} style={{ scale: fWScale }}>*/}
-      {/*  <img*/}
-      {/*    className={styles.firework__img}*/}
-      {/*    src="/assets/images/mainPage/firework.png"*/}
-      {/*    alt="none"*/}
-      {/*  />*/}
-      {/*</motion.div>*/}
-
-      <div className={styles.third__scene}>
-        <div>
-          <span>DFNGVOSNRHBRTGKMBHGP[MPG,ERFXERECERCG</span>
-          <span>ERCGXRMRTG,ONRT</span>
-          <span>CXRGIIIIITP4RF</span>
-          <span>CGRTMGORT,</span>
-        </div>
-      </div>
+      {/*<div className={styles.third__scene}>*/}
+      {/*  <div>*/}
+      {/*    <span>DFNGVOSNRHBRTGKMBHGP[MPG,ERFXERECERCG</span>*/}
+      {/*    <span>ERCGXRMRTG,ONRT</span>*/}
+      {/*    <span>CXRGIIIIITP4RF</span>*/}
+      {/*    <span>CGRTMGORT,</span>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
 
       <LatestView />
       <BackToTopBtn />

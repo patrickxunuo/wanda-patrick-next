@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  height: 1000vh;
+  height: 900vh;
 
   //.main__img__wrap {
   //  left: 50%;
@@ -26,11 +26,26 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
+    width: 360px;
+    height: 400px;
+    position: relative;
     .the__img {
+      position: absolute;
+      inset: 0;
       width: 360px;
       height: 400px;
       border-bottom-left-radius: 50%;
       border-bottom-right-radius: 50%;
+    }
+
+    .the__img__clothes {
+      position: absolute;
+      inset: 0;
+      width: 360px;
+      height: 400px;
+      border-bottom-left-radius: 50%;
+      border-bottom-right-radius: 50%;
+      opacity: 0.3;
     }
 
     .flash__light {
@@ -51,8 +66,20 @@
         background-color: rgba(255, 255, 255, 0.8);
         border-radius: 50%;
         opacity: 0;
+        z-index: 999;
         box-shadow: 0 0 25px 25px #fff, 0 0 50px 50px #fff8,
           0 0 100px 100px #fff5;
+      }
+      .firework {
+        position: absolute;
+        right: 50%;
+        bottom: 50%;
+        transform-origin: center;
+        z-index: 9999;
+        .firework__img {
+          height: 30vw;
+          border-radius: 20px;
+        }
       }
     }
   }
@@ -81,6 +108,7 @@
       color: #cf4b47;
       position: absolute;
       overflow: hidden;
+      user-select: none;
 
       span {
         display: inline-block;
@@ -112,7 +140,7 @@
 
   .second__scene {
     position: relative;
-    height: 800vh;
+    height: 750vh;
     width: clamp(800px, 60vw, 1200px);
     //scroll-snap-align: start;
     //scroll-snap-stop: normal;
@@ -134,20 +162,24 @@
         bottom: 15vh;
         font-family: "AbhayaLibre";
         line-height: 0.56em;
+        user-select: none;
       }
 
       .action__content {
         position: sticky;
         top: 40vh;
       }
+
       .every__day {
         font-family: "Renitta";
         font-size: 20px;
+        user-select: none;
       }
 
       .anni__text {
         font-family: "AbhayaLibre";
         font-size: 48px;
+        user-select: none;
       }
 
       .anni__bottom {
@@ -205,6 +237,7 @@
         top: 15vh;
         font-family: "AbhayaLibre";
         line-height: 0.56em;
+        user-select: none;
       }
 
       .tree__bird {
@@ -220,13 +253,7 @@
       }
     }
   }
-  .firework {
-    position: fixed;
-    .firework__img {
-      width: 354px;
-      height: 512px;
-    }
-  }
+
   .third__scene {
     position: relative;
     height: 100vh;

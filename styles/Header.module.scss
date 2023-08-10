@@ -1,10 +1,11 @@
-.header {
-  background-color: transparent;
-  position: absolute;
+.header,
+.header__hidden {
+  background-color: rgb(253, 251, 239, 50);
+  position: sticky;
   top: 0;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   height: 80px;
   z-index: 99;
@@ -42,9 +43,21 @@
       grid-template-columns: repeat(3, 1fr);
 
       span.header__nav__item {
+        position: relative;
+        top: 0;
         color: #555555;
         font-family: "Abhaya Libre", serif;
+        transition: all 0.5s;
       }
     }
+  }
+}
+
+.header__hidden {
+  backdrop-filter: blur(1px);
+  span.header__nav__item {
+    top: -10px !important;
+    opacity: 0;
+    transition: all 0.5s;
   }
 }
